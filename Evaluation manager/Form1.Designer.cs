@@ -55,6 +55,7 @@
             this.txt_ime.Name = "txt_ime";
             this.txt_ime.Size = new System.Drawing.Size(100, 20);
             this.txt_ime.TabIndex = 2;
+            this.txt_ime.TextChanged += new System.EventHandler(this.txt_ime_TextChanged);
             // 
             // txt_lozinka
             // 
@@ -62,6 +63,7 @@
             this.txt_lozinka.Name = "txt_lozinka";
             this.txt_lozinka.Size = new System.Drawing.Size(100, 20);
             this.txt_lozinka.TabIndex = 3;
+            this.txt_lozinka.TextChanged += new System.EventHandler(this.txt_lozinka_TextChanged);
             // 
             // bttn_prijava
             // 
