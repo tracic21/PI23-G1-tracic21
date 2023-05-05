@@ -16,8 +16,8 @@ namespace Evaluation_manager {
             InitializeComponent();
             
         }
-        string username = "nastavnik";
-        string password = "test";
+        string username = "tracic21";
+        string password = "sifra";
 
         private void label1_Click(object sender, EventArgs e) {
 
@@ -44,8 +44,8 @@ namespace Evaluation_manager {
                 MessageBoxIcon.Error);
             } else {
                 if (txt_ime.Text == username && txt_lozinka.Text == password) {
-                    MessageBox.Show("Dobrodošli!", "Prijavljeni ste",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Form2 frmStudents = new Form2();
+                    frmStudents.ShowDialog();
                 } else {
                     MessageBox.Show("Krivi podaci!", "Problem", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
