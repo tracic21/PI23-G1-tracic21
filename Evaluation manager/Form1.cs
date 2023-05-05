@@ -10,24 +10,40 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Evaluation_manager {
+
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
+            
         }
+        string username = "nastavnik";
+        string password = "test";
 
         private void label1_Click(object sender, EventArgs e) {
 
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            if (txtUsername.Text == "") {
+            
+        }
+
+        public void txt_ime_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        public void txt_lozinka_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            if (txt_ime.Text == "") {
                 MessageBox.Show("Korisničko ime nije uneseno!", "Problem",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else if (txtPassword.Text == "") {
+            } else if (txt_lozinka.Text == "") {
                 MessageBox.Show("Lozinka nije unesena!", "Problem", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             } else {
-                if (txtUsername.Text == username && txtPassword.Text == password) {
+                if (txt_ime.Text == username && txt_lozinka.Text == password) {
                     MessageBox.Show("Dobrodošli!", "Prijavljeni ste",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } else {
@@ -37,16 +53,6 @@ namespace Evaluation_manager {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            MessageBox.Show("Pritisnut sam!");
-        }
-
-        private void txt_ime_TextChanged(object sender, EventArgs e) {
-            
-        }
-
-        private void txt_lozinka_TextChanged(object sender, EventArgs e) {
-
-        }
+        
     }
 }
