@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Evaluation_manager {
-    public class teacher : Person{
+    public class Teacher : Person{
 
         public string Username { get; set; }
 

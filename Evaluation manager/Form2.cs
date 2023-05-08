@@ -14,14 +14,7 @@ namespace Evaluation_manager {
             InitializeComponent();
         }
 
-        private void dgvstudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
-
         private void Form2_Load(object sender, EventArgs e) {
-
-        }
-        private void FrmStudents_Load(object sender, EventArgs e) {
             ShowStudents();
         }
         private void ShowStudents() {
