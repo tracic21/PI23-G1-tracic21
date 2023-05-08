@@ -26,5 +26,15 @@ namespace Evaluation_manager {
         private void dgvstudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
+
+
+
+        private void EvaluateStudent_Click(object sender, EventArgs e) {
+            student selectedStudent = dgvstudents.CurrentRow.DataBoundItem as student;
+            if (selectedStudent != null) {
+                evaluation frmEvaluation = new evaluation(selectedStudent);
+                frmEvaluation.ShowDialog();
+            }
+        }
     }
 }

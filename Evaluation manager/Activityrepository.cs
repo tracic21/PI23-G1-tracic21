@@ -1,56 +1,60 @@
-﻿using System;
+﻿using DBLayer;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Evaluation_manager {
     public static class Activityrepository {
-        private Activity CreateObject(SqlDataReader reader) {
+        private static Activity CreateObject(SqlDataReader reader) {
             int id = int.Parse(reader["Id"].ToString());
-            string firstName = reader["FirstName"].ToString();
-            string lastName = reader["LastName"].ToString();
-            int.TryParse(reader["Grade"].ToString(), out int grade);
-            var aktivnost = new Activity {
+            string name = reader["Name"].ToString();
+            string description = reader["Description"].ToString();
+            int maxPoints = int.Parse(reader["MaxPoints"].ToString());
+            int minPointsForGrade =
+            int.Parse(reader["MinPointsForGrade"].ToString());
+            int minPointsForSignature =
+           int.Parse(reader["MinPointsForSignature"].ToString());
+            var activity = new Activity {
                 Id = id,
-                FirstName = firstName,
-                LastName = lastName,
-                Grade = grade
+                Name = name,
+                Description = description,
+                MaxPoints = maxPoints,
+                MinPointsForGrade = minPointsForGrade,
+                MinPointsForSignature = minPointsForSignature
             };
-            return null;
-
+            return activity;
         }
 
-        public Activity GetStudent(int id) {
-            Activity student = null;
-            SqlDataReader reader = DB.GetDataReader($"SELECT * FROM students WHERE Id = {id}");
+        public static Activity GetActivity(int id) {
+            Activity activity = null;
+            string sql = $"SELECT * FROM Activities WHERE Id = {id}";
             DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
             if (reader.HasRows) {
                 reader.Read();
-                //Activity = CreateObject(reader);
-                student.Id = Convert.ToInt32(reader["Id"].ToString());
-                student.FirstName = reader["FirstName"].ToString();
-                student.LastName = reader["LastName"].ToString();
-                int.TryParse(reader["Grade"].ToString(), out int grade);
+                activity = CreateObject(reader);
                 reader.Close();
             }
             DB.CloseConnection();
-            return student;
-
+            return activity;
         }
 
-        public List<Activity> GetStudents() {
-            List<Activity> students = new List<Activity>();
-            string sql = "SELECT * FROM students";
+
+        public static List<Activity> GetActivities() {
+            List<Activity> activities = new List<Activity>();
+            string sql = "SELECT * FROM Activities";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read()) {
-                Activity student = CreateObject(reader);
-                students.Add(student);
+                Activity activity = CreateObject(reader);
+                activities.Add(activity);
             }
             reader.Close();
             DB.CloseConnection();
-            return students;
+            return activities;
         }
     }
 }

@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.txtActivity = new System.Windows.Forms.ComboBox();
+            this.cboActivities = new System.Windows.Forms.ComboBox();
             this.txtPotpis = new System.Windows.Forms.TextBox();
             this.txtUvjetocj = new System.Windows.Forms.TextBox();
             this.txtBig = new System.Windows.Forms.TextBox();
@@ -32,22 +32,22 @@
             this.numBod = new System.Windows.Forms.NumericUpDown();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txtAktivnost = new System.Windows.Forms.Label();
+            this.txtMinForSignature = new System.Windows.Forms.Label();
+            this.txtMinForGrade = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numBod)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtActivity
+            // cboActivities
             // 
-            this.txtActivity.FormattingEnabled = true;
-            this.txtActivity.Location = new System.Drawing.Point(29, 30);
-            this.txtActivity.Name = "txtActivity";
-            this.txtActivity.Size = new System.Drawing.Size(195, 21);
-            this.txtActivity.TabIndex = 0;
+            this.cboActivities.FormattingEnabled = true;
+            this.cboActivities.Location = new System.Drawing.Point(29, 30);
+            this.cboActivities.Name = "cboActivities";
+            this.cboActivities.Size = new System.Drawing.Size(195, 21);
+            this.cboActivities.TabIndex = 0;
             // 
             // txtPotpis
             // 
@@ -70,6 +70,7 @@
             this.txtBig.Name = "txtBig";
             this.txtBig.Size = new System.Drawing.Size(743, 301);
             this.txtBig.TabIndex = 3;
+            this.txtBig.TextChanged += new System.EventHandler(this.txtBig_TextChanged);
             // 
             // txtTeacher
             // 
@@ -113,32 +114,32 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // txtAktivnost
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Aktivnost:";
+            this.txtAktivnost.AutoSize = true;
+            this.txtAktivnost.Location = new System.Drawing.Point(26, 14);
+            this.txtAktivnost.Name = "txtAktivnost";
+            this.txtAktivnost.Size = new System.Drawing.Size(54, 13);
+            this.txtAktivnost.TabIndex = 9;
+            this.txtAktivnost.Text = "Aktivnost:";
             // 
-            // label2
+            // txtMinForSignature
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(425, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Uvjet za potpis";
+            this.txtMinForSignature.AutoSize = true;
+            this.txtMinForSignature.Location = new System.Drawing.Point(425, 15);
+            this.txtMinForSignature.Name = "txtMinForSignature";
+            this.txtMinForSignature.Size = new System.Drawing.Size(77, 13);
+            this.txtMinForSignature.TabIndex = 10;
+            this.txtMinForSignature.Text = "Uvjet za potpis";
             // 
-            // label3
+            // txtMinForGrade
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(621, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Uvjet za oocjenu";
+            this.txtMinForGrade.AutoSize = true;
+            this.txtMinForGrade.Location = new System.Drawing.Point(621, 14);
+            this.txtMinForGrade.Name = "txtMinForGrade";
+            this.txtMinForGrade.Size = new System.Drawing.Size(87, 13);
+            this.txtMinForGrade.TabIndex = 11;
+            this.txtMinForGrade.Text = "Uvjet za oocjenu";
             // 
             // label4
             // 
@@ -178,9 +179,9 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtMinForGrade);
+            this.Controls.Add(this.txtMinForSignature);
+            this.Controls.Add(this.txtAktivnost);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.numBod);
@@ -189,9 +190,10 @@
             this.Controls.Add(this.txtBig);
             this.Controls.Add(this.txtUvjetocj);
             this.Controls.Add(this.txtPotpis);
-            this.Controls.Add(this.txtActivity);
+            this.Controls.Add(this.cboActivities);
             this.Name = "evaluation";
             this.Text = "evaluation";
+            this.Load += new System.EventHandler(this.evaluation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numBod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -200,7 +202,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox txtActivity;
+        private System.Windows.Forms.ComboBox cboActivities;
         private System.Windows.Forms.TextBox txtPotpis;
         private System.Windows.Forms.TextBox txtUvjetocj;
         private System.Windows.Forms.TextBox txtBig;
@@ -209,9 +211,9 @@
         private System.Windows.Forms.NumericUpDown numBod;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label txtAktivnost;
+        private System.Windows.Forms.Label txtMinForSignature;
+        private System.Windows.Forms.Label txtMinForGrade;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
