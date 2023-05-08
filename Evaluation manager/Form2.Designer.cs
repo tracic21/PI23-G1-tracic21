@@ -34,6 +34,7 @@
             this.dgvstudents.Name = "dgvstudents";
             this.dgvstudents.Size = new System.Drawing.Size(776, 426);
             this.dgvstudents.TabIndex = 0;
+            this.dgvstudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvstudents_CellContentClick);
             // 
             // Form2
             // 

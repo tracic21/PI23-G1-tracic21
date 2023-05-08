@@ -23,5 +23,8 @@ namespace Evaluation_manager {
             dgvstudents.DataSource = students;
         }
 
+        private void dgvstudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
     }
 }

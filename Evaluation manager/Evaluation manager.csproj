@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activity.cs" />
+    <Compile Include="Activityrepository.cs" />
     <Compile Include="evaluation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +77,9 @@
     <Compile Include="student.cs" />
     <Compile Include="StudentRepository.cs" />
     <Compile Include="teacher.cs" />
+    <EmbeddedResource Include="evaluation.resx">
+      <DependentUpon>evaluation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
