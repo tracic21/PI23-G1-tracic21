@@ -16,8 +16,7 @@ namespace Evaluation_manager {
             InitializeComponent();
             
         }
-        string username = "tracic21";
-        string password = "sifra";
+        public static Teacher LoggedTeacher { get; set; }
 
         private void label1_Click(object sender, EventArgs e) {
 
@@ -43,7 +42,8 @@ namespace Evaluation_manager {
                 MessageBox.Show("Lozinka nije unesena!", "Problem", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             } else {
-                if (txt_ime.Text == username && txt_lozinka.Text == password) {
+                LoggedTeacher = TeacherRepository.GetTeacher(txt_ime, Text);
+                if (LoggedTeacher == null && LoggedTeacher.Password == txt_lozinka.Text) {
                     Form2 frmStudents = new Form2();
                     frmStudents.ShowDialog();
                 } else {

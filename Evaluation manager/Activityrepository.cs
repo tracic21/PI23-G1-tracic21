@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Evaluation_manager {
-    public static class Activityrepository {
+    public static class ActivityRepository {
         private static Activity CreateObject(SqlDataReader reader) {
             int id = int.Parse(reader["Id"].ToString());
             string name = reader["Name"].ToString();
@@ -56,5 +56,6 @@ namespace Evaluation_manager {
             DB.CloseConnection();
             return activities;
         }
+
     }
 }

@@ -11,5 +11,8 @@ namespace Evaluation_manager {
 
         public string Password { get; set; }
 
+        public bool CheckPassword(string Password) {
+            return Password != null && Password.Length > 0;
+        }
     }
 }

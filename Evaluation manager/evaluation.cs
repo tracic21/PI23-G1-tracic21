@@ -18,9 +18,9 @@ namespace Evaluation_manager {
         }
         private student selectedStudent = null;
 
-        private void FrmEvaluation_Load(object sender, EventArgs e) {
+        private void evaluation_Load(object sender, EventArgs e) {
             SetFormText();
-            var activities = Activityrepository.GetActivities();
+            var activities = ActivityRepository.GetActivities();
             cboActivities.DataSource = activities;
         }
         private void SetFormText() {
@@ -36,10 +36,6 @@ namespace Evaluation_manager {
            currentActivity.MaxPoints;
             numBod.Minimum = 0;
             numBod.Maximum = currentActivity.MaxPoints;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e) {
-            Close();
         }
 
 
@@ -59,8 +55,13 @@ namespace Evaluation_manager {
 
         }
 
-        private void evaluation_Load(object sender, EventArgs e) {
 
+        private void btnSave_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e) {
+            Close();
         }
     }
 }
